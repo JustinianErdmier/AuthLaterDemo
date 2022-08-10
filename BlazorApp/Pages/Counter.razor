@@ -1,0 +1,31 @@
+﻿@page "/counter"
+@attribute [Authorize]
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        <button class="btn btn-primary" @onclick="AdminIncrementCount">Click me</button>
+    </Authorized>
+    <NotAuthorized>
+        <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void AdminIncrementCount()
+    {
+        currentCount += 50;
+    }
+}

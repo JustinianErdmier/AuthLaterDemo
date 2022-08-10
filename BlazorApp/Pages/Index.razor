@@ -1,0 +1,37 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Our Existing App</h1>
+
+<p>This app did not have authorization, but we are going to add it in.</p>
+
+<p>
+    ASP.NET Core Blazor Authentication &Aacute; Authorization Docs:
+    <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-6.0" target="_blank">click here</a>
+</p>
+<p>
+    Secure ASP.NET Core Blazor Server Apps:
+    <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/security/server/?view=aspnetcore-6.0&tabs=visual-studio" target="_blank">click here</a>
+</p>
+<p>
+    ASP.NET Core Security Topics:
+    <a href="https://docs.microsoft.com/en-us/aspnet/core/security/?view=aspnetcore-6.0" target="_blank">click here</a>
+</p>
+
+<br />
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Thank you for being logged in.</h3>
+    </Authorized>
+    <NotAuthorized>
+        <h3 class="text-danger">Please log in.</h3>
+    </NotAuthorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        <h4>Thanks for serving as an admin!</h4>
+    </Authorized>
+</AuthorizeView>
